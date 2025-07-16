@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import * as svgSources from './svg';
 
 export default class Loading extends Component {
@@ -62,14 +61,14 @@ export default class Loading extends Component {
       height: Number(height) || height,
       width: Number(width) || width,
     };
-
+    const decodedSvg = decodeURIComponent(svg.replace('data:image/svg+xml,', ''));
 
     return (
       <div
         style={style}
-        dangerouslySetInnerHTML={{ __html: svg }}
+        dangerouslySetInnerHTML={{ __html: decodedSvg }}
         {...restProps}
-      />
+        />      
     );
   }
 }
